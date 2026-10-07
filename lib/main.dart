@@ -8,33 +8,37 @@ void main() {
   //       child: Text('KING INDO')
   //       ),
   //       backgroundColor: Color.fromRGBO(255, 0, 149, 0.325))),
-  //       );
- runApp(const MyClass());
-  
+  //     );
+  runApp(const MyClass());
 }
+
 class MyClass extends StatelessWidget {
   // Custom constructor
   const MyClass({super.key});
-
-  
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-      body: Center(
-        
-        child: Text('KING INDO')
+        body: Center(
+          child: Text(
+            'KING INDO',
+            style: TextStyle(
+              fontSize: 35, 
+              fontWeight: FontWeight.bold, 
+              color: Colors.white, 
+            ),
+          ),
         ),
-
-        backgroundColor: Color.fromRGBO(255, 0, 149, 0.325)
-        )
-        );
+        backgroundColor: Color.fromRGBO(255, 0, 149, 0.325),
+      ),
+    );
   }
 }
+
 class MyWidget extends StatelessWidget {
-  const new({super.key});
+  const MyWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
