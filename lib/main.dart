@@ -9,25 +9,27 @@ class MyClass extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Kata 'const' di depan MaterialApp dihilangkan karena Image.network butuh internet
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        // TAMBAHAN 1: AppBar biar ada header di atas aplikasi
+        appBar: AppBar(
+          title: const Text(
+            'Tugas Mobile Azriel',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+          backgroundColor: Colors.pinkAccent, // Warna bar atasnya
+          centerTitle: true, // Biar teks judulnya di tengah
+        ),
         body: Center(
-          // Column dipakai untuk menyusun susunan widget dari atas ke bawah
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, // Biar posisinya di tengah layar
+            mainAxisAlignment: MainAxisAlignment.center, 
             children: [
-              // 1. Menampilkan GIF dari internet
               Image.network(
                 'https://media.giphy.com/media/xT0xezQGU5xCDJuCPe/giphy.gif', 
                 width: 250, 
               ),
-              
-              // Memberikan jarak kosong antara gambar dan teks sebesar 20 pixel
               const SizedBox(height: 20), 
-              
-              // 2. Kodingan Teks awal lu
               const Text(
                 'KING INDO',
                 style: TextStyle(
@@ -36,31 +38,29 @@ class MyClass extends StatelessWidget {
                   color: Colors.white, 
                 ),
               ),
+              const SizedBox(height: 25), // Jarak antara teks dan tombol
+              
+              // TAMBAHAN 2: Tombol interaktif
+              ElevatedButton(
+                onPressed: () {
+                  // Aksi kalau tombol dipencet (nanti bisa munculin efek atau pindah halaman)
+                  print("Tombol King Indo dipencet!"); 
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white, // Warna background tombol
+                  foregroundColor: Colors.pink, // Warna teks di dalam tombol
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15), // Bikin tombolnya agak gede
+                ),
+                child: const Text(
+                  'GAS BANG!',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
             ],
           ),
         ),
         backgroundColor: const Color.fromRGBO(255, 0, 149, 0.325),
       ),
-    );
-  }
-}
-
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-
-class BasicTextWidget extends StatelessWidget {
-  const BasicTextWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Text(
-      'Hello World',
     );
   }
 }
